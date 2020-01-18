@@ -18,3 +18,14 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
     res.render('pages/home')
 })
+
+//middleware para verificar se a requisição é o favicon.ico, se true, retorna vazio invés do retorno 404
+
+app.use((req, res, next) => {
+    if(req.url === '/favicon.ico'){
+        res.writeHead(200, {'Content-Type': 'image/x-icon'});
+        res.end('');
+    }else{
+        next();
+    }
+});
