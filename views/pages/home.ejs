@@ -11,9 +11,10 @@
 </div>
 
 <div class="linha">
+    <% for(dados of dadosbuscados){ %>
     <div class="col-6">
         <div class="card">
-            <h4>Dia 01/01/2020</h4>
+            <h4><% dados.locale %></h4>
             <p>Sol com muitas nuvens durante o dia. Probabilidade de chuvas fortes no final da tarde.</p>
             <div class="dados">
                 <img src="/img/maxima.png" title="maxima" alt="Maxima" />
@@ -29,8 +30,8 @@
             </div>
         </div>
     </div>
-
-    <div class="col-6">
+<% } %>
+    <!-- <div class="col-6">
         <div class="card">
             <h4>Dia 02/01/2020</h4>
             <p>Sol com muitas nuvens durante o dia. Probabilidade de chuvas fortes no final da tarde.</p>
@@ -47,5 +48,5 @@
                 <span class="chuva">50%</span>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

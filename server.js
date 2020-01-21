@@ -5,7 +5,7 @@ const app = express()
 const port = process.env.PORT || 5000
 const routes = require('./routes.js');
 
-//app.use(express.json()) //Passando para aplicação que irá utilizar o JSON
+app.use(express.json()) //Passando para aplicação que irá utilizar o JSON
 app.set('view engine', 'ejs') //Setamos que nossa engine será o ejs;
 app.use(expressLayouts)
 app.use(bodyParser.urlencoded({ extended: true })) //parsear o corpo das requisições pelo req.body
