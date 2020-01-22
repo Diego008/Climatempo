@@ -1,32 +1,32 @@
 <%- contentFor('body') %>
 <div class="conteudo">
-    <form onsubmit="">
-        <input type="text" placeholder="Buscar" />
-        <!-- <i class="fas fa-search"></i> -->
+    <form action="/" method="POST">
+        <input type="text" name="buscar" placeholder="Buscar" />
+        <button type="submit"></button>
     </form>
 </div>
 
 <div class="linha">
-    <h2>Previsão para Osasco - SP</h2>
+    <h2>Previsão para <%- locale.name %> - <%- locale.state %></h2>
 </div>
 
 <div class="linha">
-    <% for(dados of dadosbuscados){ %>
+    <% for(dados of weather){ %>
     <div class="col-6">
         <div class="card">
-            <h4><% dados.locale %></h4>
-            <p>Sol com muitas nuvens durante o dia. Probabilidade de chuvas fortes no final da tarde.</p>
+            <h4><%- dados.date %></h4>
+            <p><%- dados.text %></p>
             <div class="dados">
                 <img src="/img/maxima.png" title="maxima" alt="Maxima" />
-                <span class="maxima">20° C</span>  
+                <span class="maxima"><%- dados.temperature.max %>° C</span>  
                 <img src="/img/minima.png" title="minima" alt="Minima" />
-                <span class="minima">10° C</span>              
+                <span class="minima"><%- dados.temperature.min %>° C</span>              
             </div>
             <div class="dados2">
                 <img src="/img/umido.png" title="umido" alt="Umido" />
-                <span class="chuva">10MM</span>
+                <span class="chuva"><%- dados.rain.precipitation %>MM</span>
                 <img src="/img/chuva.png" title="chuva" alt="Chuva" />
-                <span class="chuva">50%</span>
+                <span class="chuva"><%- dados.rain.probability %>%</span>
             </div>
         </div>
     </div>
