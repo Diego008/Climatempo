@@ -69,6 +69,47 @@ router.post("/", (req, res) => {
         }
       ]
     });
+  }else if(req.body.buscar === "Osasco"){
+    res.render("pages/home", {
+      locale: {
+        id: 3735,
+        name: "Osasco",
+        state: "SP",
+        latitude: -23.532,
+        longitude: -46.792
+      },
+      weather: [
+        {
+          date: "2020-01-01",
+          text:
+            "Sol com muitas nuvens durante o dia. Períodos de nublado, com chuva a qualquer hora.",
+          temperature: {
+            min: 10,
+            max: 20
+          },
+          rain: {
+            probability: 60,
+            precipitation: 20
+          }
+        },
+  
+        {
+          date: "2020-01-02",
+          text:
+            "Sol com muitas nuvens durante o dia. Períodos de nublado, com chuva a qualquer hora.",
+          temperature: {
+            min: 20,
+            max: 29
+          },
+          rain: {
+            probability: 60,
+            precipitation: 15
+          }
+        }
+      ]
+    });
+  }else{
+    res.send('Cidade não disponível, por favor digite outra');
   }
 });
 
